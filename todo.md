@@ -74,3 +74,15 @@
 - [ ] Confirm no Manus scheduled tasks for this site
 - [ ] Push 500 drafts + image refs to `peacefulgeek/adopted-rage`
 - [ ] Capture commit SHA, deliver §23 report
+
+
+---
+
+# ASIN Verification Pass (one-shot)
+
+- [ ] Extract all 205 ASINs from `client/src/data/remedies.ts`
+- [ ] Verify each ASIN returns 200 on `https://www.amazon.com/dp/{ASIN}`
+- [ ] For any 404/non-product responses, search Amazon for replacement matching name+brand
+- [ ] Update remedies.ts with verified ASINs (mark `verified: true`, add timestamp)
+- [ ] Re-verify post-replacement
+- [ ] Commit + push to peacefulgeek/adopted-rage
