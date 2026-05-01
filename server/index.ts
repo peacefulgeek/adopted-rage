@@ -24,6 +24,8 @@ import { homeHead, articleHead, slugifyCategory } from "../src/lib/seo.mjs";
 import { robotsTxt, sitemapXml, rssXml, llmsTxt } from "../src/lib/feeds.mjs";
 // @ts-ignore
 import { registerCrons } from "../src/cron/schedule.mjs";
+// @ts-ignore
+import { readLatestReport, runAsinVerificationJob } from "../src/cron/verify-asins.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -157,6 +159,36 @@ async function startServer() {
     try {
       await reload();
       res.json({ reloaded: true });
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  // ─── Admin: ASIN health ─────────────────────────────────────────────
+  // Returns the latest monthly verification report. Read-only.
+  app.get("/api/admin/asin-health", async (_req, res, next) => {
+    try {
+      const report = await readLatestReport();
+      res.json(report);
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  // Trigger an out-of-band re-verification. Gated by ADMIN_TOKEN to prevent abuse.
+  app.post("/api/admin/asin-health/run", async (req, res, next) => {
+    try {
+      const token = process.env.ADMIN_TOKEN;
+      const provided = req.headers["x-admin-token"] || req.query.token;
+      if (!token || provided !== token) {
+        res.status(403).json({ error: "forbidden" });
+        return;
+      }
+      // Fire-and-forget: respond immediately, run in background.
+      res.json({ started: true, note: "Verification running in background; poll GET /api/admin/asin-health for results." });
+      runAsinVerificationJob().catch((err) =>
+        console.error("[admin] asin verification error", err)
+      );
     } catch (e) {
       next(e);
     }

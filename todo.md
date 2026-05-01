@@ -86,3 +86,15 @@
 - [ ] Update remedies.ts with verified ASINs (mark `verified: true`, add timestamp)
 - [ ] Re-verify post-replacement
 - [ ] Commit + push to peacefulgeek/adopted-rage
+
+
+---
+
+# Monthly ASIN Re-Verification Cron
+
+- [ ] Inspect existing cron architecture (`src/cron/scheduler.mjs`)
+- [ ] Build `src/cron/jobs/verify-asins.mjs` — fetches all 205 ASINs with low concurrency + retry, classifies each, writes report to `data/asin-health.json`
+- [ ] Wire cron schedule: `0 4 1 * *` (4am UTC on the 1st of each month) — runs autonomously, no Manus
+- [ ] Add admin endpoint `GET /api/admin/asin-health` to view latest report
+- [ ] Smoke-test the verifier locally (run on a sample of 20 ASINs)
+- [ ] Build clean, push to GitHub `peacefulgeek/adopted-rage`
