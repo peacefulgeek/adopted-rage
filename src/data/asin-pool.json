@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-04-30T00:00:00Z",
+  "products": [
+    {
+      "asin": "0963648004",
+      "name": "The Primal Wound: Understanding the Adopted Child by Nancy Newton Verrier",
+      "category": "Primal Wound",
+      "tags": ["primal-wound", "books", "library", "verrier"]
+    },
+    {
+      "asin": "1849058903",
+      "name": "Coming Home to Self: The Adopted Child Grows Up by Nancy Verrier",
+      "category": "Primal Wound",
+      "tags": ["primal-wound", "books", "library", "verrier"]
+    },
+    {
+      "asin": "1567510620",
+      "name": "Journey of the Adopted Self: A Quest for Wholeness by Betty Jean Lifton",
+      "category": "Identity & Search",
+      "tags": ["identity", "search", "books", "lifton"]
+    },
+    {
+      "asin": "1849057117",
+      "name": "Adoption Healing... a path to recovery by Joe Soll",
+      "category": "Healing Practices",
+      "tags": ["healing", "therapy", "books"]
+    },
+    {
+      "asin": "0142180858",
+      "name": "The Body Keeps the Score by Bessel van der Kolk MD",
+      "category": "Body & Nervous System",
+      "tags": ["somatic", "trauma", "books", "van-der-kolk"]
+    },
+    {
+      "asin": "1683733533",
+      "name": "What My Bones Know by Stephanie Foo",
+      "category": "Healing Practices",
+      "tags": ["complex-trauma", "memoir", "books"]
+    },
+    {
+      "asin": "B07FZ8S74R",
+      "name": "Loop Quiet Ear Plugs for Noise Reduction",
+      "category": "Body & Nervous System",
+      "tags": ["nervous-system", "noise-sensitivity", "tools"]
+    },
+    {
+      "asin": "B07GR5MSKD",
+      "name": "Bearaby Cotton Napper - Cooling Weighted Blanket",
+      "category": "Body & Nervous System",
+      "tags": ["weighted-blanket", "nervous-system", "sleep"]
+    },
+    {
+      "asin": "1623157897",
+      "name": "Polyvagal Exercises for Safety and Connection by Deb Dana",
+      "category": "Healing Practices",
+      "tags": ["polyvagal", "somatic", "books", "dana"]
+    },
+    {
+      "asin": "0593329503",
+      "name": "Trauma and the Body by Pat Ogden",
+      "category": "Body & Nervous System",
+      "tags": ["somatic", "trauma", "books"]
+    },
+    {
+      "asin": "B08FR1NRB2",
+      "name": "Five Minute Journal: A Happier You in 5 Minutes a Day",
+      "category": "Healing Practices",
+      "tags": ["journaling", "tools", "ritual"]
+    },
+    {
+      "asin": "1612436471",
+      "name": "It Didn't Start with You by Mark Wolynn",
+      "category": "Healing Practices",
+      "tags": ["intergenerational", "trauma", "books"]
+    },
+    {
+      "asin": "0593187474",
+      "name": "All You Can Ever Know: A Memoir by Nicole Chung",
+      "category": "Transracial Adoption",
+      "tags": ["transracial", "memoir", "books"]
+    }
+  ]
+}

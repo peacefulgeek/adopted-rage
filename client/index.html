@@ -1,26 +1,25 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>The Adoption Fog</title>    
-    <!-- THIS IS THE START OF A COMMENT BLOCK, BLOCK TO BE DELETED: Google Fonts here, example:
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    THIS IS THE END OF A COMMENT BLOCK, BLOCK TO BE DELETED -->
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F4F1ED" />
+    <title>Adopted Rage — the wound, the rage, the long way home</title>
+    <!--
+      Per per-site §SITE 87: fonts must live on Bunny CDN, NOT Google Fonts.
+      Until the user uploads them, we ship the safe system stack so the
+      site renders identically (no FOUT, no third-party calls).
+      Bunny upload step (post-launch):
+        - Download Fraunces (display) and DM Sans (text)
+        - Upload to /fonts/fraunces.woff2 + /fonts/dm-sans.woff2 on the storage zone
+        - Add @font-face declarations here pointing at PULL_ZONE/fonts/*
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
-
 </html>

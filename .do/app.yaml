@@ -1,0 +1,55 @@
+# Per master-scope §6 — DigitalOcean App Platform spec.
+# Bunny values are inlined in src/lib/site-config.mjs (see §9), not here.
+# Banned-key audit: this file intentionally omits any reference to legacy keys.
+name: adopted-rage
+region: nyc
+services:
+  - name: web
+    github:
+      repo: peacefulgeek/adopted-rage
+      branch: main
+      deploy_on_push: true
+    build_command: pnpm install --frozen-lockfile && pnpm build
+    run_command: node scripts/start-with-cron.mjs
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 3000
+    health_check:
+      http_path: /healthz
+      initial_delay_seconds: 30
+      period_seconds: 60
+      timeout_seconds: 10
+      success_threshold: 1
+      failure_threshold: 3
+    envs:
+      - key: NODE_ENV
+        value: production
+        scope: RUN_TIME
+      - key: PORT
+        value: "3000"
+        scope: RUN_TIME
+      - key: AUTO_GEN_ENABLED
+        value: "true"
+        scope: RUN_TIME
+      - key: AMAZON_TAG
+        value: spankyspinola-20
+        scope: RUN_TIME
+      # Writing engine: DeepSeek V4-Pro via the OpenAI client.
+      - key: OPENAI_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: OPENAI_BASE_URL
+        value: https://api.deepseek.com
+        scope: RUN_TIME
+      - key: OPENAI_MODEL
+        value: deepseek-v4-pro
+        scope: RUN_TIME
+      # GitHub PAT for image migration / ASIN audit reports.
+      - key: GH_PAT
+        scope: RUN_TIME
+        type: SECRET
+domains:
+  - domain: adoptedrage.com
+    type: PRIMARY
+  - domain: www.adoptedrage.com
+    type: ALIAS

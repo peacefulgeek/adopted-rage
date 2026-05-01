@@ -1,37 +1,48 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
-
+import Article from "./pages/Article";
+import Category from "./pages/Category";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Disclosures from "./pages/Disclosures";
+import Privacy from "./pages/Privacy";
+import Author from "./pages/Author";
+import Toolkit from "./pages/Toolkit";
+import Library from "./pages/Library";
+import NotFound from "./pages/NotFound";
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/articles/:slug" component={Article} />
+        <Route path="/category/:slug" component={Category} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/disclosures" component={Disclosures} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/author/the-oracle-lover" component={Author} />
+        <Route path="/toolkit" component={Toolkit} />
+        <Route path="/library" component={Library} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </Layout>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Toaster />
+          <Toaster richColors closeButton />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

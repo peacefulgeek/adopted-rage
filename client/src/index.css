@@ -1,13 +1,23 @@
+/*
+ * Adopted Rage — Archetype B (Grid) — design tokens.
+ * Per per-site §SITE 87:
+ *   bg: soft warm gray #F4F1ED  text: deep slate #2E3239
+ *   accents: muted teal #5B8A8A and warm clay #B07B5A
+ *
+ * Aesthetic: editorial magazine meets soft watercolour journal.
+ * Light, image-rich, lovely. No dark mode. No black backgrounds.
+ * Body sans (DM Sans), display serif (Fraunces) for headings — pairs
+ * "modern" with "tender" without leaning Inter-uniform.
+ */
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -27,151 +37,207 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-clay: var(--clay);
+  --color-clay-soft: var(--clay-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+
+  --font-display: "Fraunces", "Georgia", "Times New Roman", serif;
+  --font-sans: "DM Sans", "Inter", system-ui, -apple-system, sans-serif;
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
-}
+  /* Per per-site palette */
+  --background: oklch(0.957 0.013 70);   /* #F4F1ED soft warm gray */
+  --foreground: oklch(0.305 0.012 248);  /* #2E3239 deep slate */
+  --paper: oklch(0.978 0.011 75);        /* slightly warmer paper */
+  --cream: oklch(0.985 0.014 80);        /* highlight cream */
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--cream);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.55 0.045 200);      /* muted teal #5B8A8A */
+  --primary-foreground: oklch(0.985 0.014 80);
+  --secondary: oklch(0.62 0.085 50);     /* warm clay #B07B5A */
+  --secondary-foreground: oklch(0.99 0 0);
+
+  --teal: oklch(0.55 0.045 200);
+  --teal-soft: oklch(0.86 0.024 200);
+  --clay: oklch(0.62 0.085 50);
+  --clay-soft: oklch(0.88 0.045 60);
+
+  --muted: oklch(0.93 0.012 75);
+  --muted-foreground: oklch(0.45 0.012 248);
+  --accent: oklch(0.86 0.024 200);
+  --accent-foreground: oklch(0.305 0.012 248);
+  --destructive: oklch(0.577 0.18 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+
+  --border: oklch(0.88 0.012 70);
+  --input: oklch(0.88 0.012 70);
+  --ring: oklch(0.55 0.045 200);
+
+  --radius: 12px;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border; }
+  html, body { background-color: var(--background); color: var(--foreground); }
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+  h1 { font-weight: 500; }
+  h2 { font-weight: 500; }
+  h3 { font-weight: 600; }
+  a { color: inherit; }
+  ::selection { background: var(--clay-soft); color: var(--foreground); }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
   [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
+  a[href] { @apply cursor-pointer; }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 2.5rem; padding-right: 2.5rem; max-width: 1280px; }
+  }
+  .flex { min-height: 0; min-width: 0; }
+
+  /* Watercolor edge */
+  .deckle {
+    -webkit-mask-image: radial-gradient(120% 120% at 50% 50%, #000 78%, transparent 100%);
+            mask-image: radial-gradient(120% 120% at 50% 50%, #000 78%, transparent 100%);
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
+  /* Subtle grain overlay */
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.20  0 0 0 0 0.22  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 160px 160px;
+    pointer-events: none;
+    opacity: 0.6;
   }
+
+  /* Pill TOC */
+  .toc-pill {
+    border: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--foreground);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+    white-space: nowrap;
+  }
+  .toc-pill:hover { background: var(--teal-soft); border-color: var(--teal); }
+  .toc-pill[aria-current="true"] { background: var(--teal); color: var(--primary-foreground); border-color: var(--teal); }
+
+  /* Article prose tuning (Archetype B: 740px max) */
+  .prose-article {
+    max-width: 740px;
+    color: var(--foreground);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) { .prose-article { font-size: 16px; } }
+  .prose-article p { margin: 0 0 1.1rem; }
+  .prose-article h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin: 2.4rem 0 0.8rem;
+  }
+  .prose-article h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin: 1.6rem 0 0.6rem;
+  }
+  .prose-article a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklch, var(--teal) 35%, transparent);
+    text-underline-offset: 3px;
+  }
+  .prose-article a:hover {
+    color: var(--clay);
+    text-decoration-color: color-mix(in oklch, var(--clay) 60%, transparent);
+  }
+  .prose-article blockquote {
+    border-left: 3px solid var(--clay);
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    color: var(--muted-foreground);
+    font-style: italic;
+    margin: 1.4rem 0;
+  }
+  .prose-article ul, .prose-article ol { margin: 0.4rem 0 1.2rem 1.4rem; }
+  .prose-article li { margin: 0.3rem 0; }
+  .prose-article hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  .prose-article .tldr {
+    background: linear-gradient(180deg, var(--cream), var(--paper));
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+    margin: 0 0 1.6rem;
+  }
+  .prose-article .tldr h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.4rem;
+    color: var(--teal);
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  .prose-article .product-card,
+  .prose-article .product-link {
+    display: inline-block;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin: 2px 1px;
+    text-decoration: none;
+    color: var(--clay);
+    font-weight: 500;
+  }
+  .prose-article .product-card:hover { background: var(--clay-soft); }
+
+  /* Masonry grid for homepage */
+  .masonry { columns: 1; column-gap: 1.5rem; }
+  @media (min-width: 700px) { .masonry { columns: 2; } }
+  @media (min-width: 1100px) { .masonry { columns: 3; } }
+  .masonry > * { break-inside: avoid; margin-bottom: 1.5rem; }
 }
