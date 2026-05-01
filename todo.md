@@ -45,3 +45,32 @@
 
 ## §23 report
 - [ ] Emit single block per spec
+
+
+---
+
+# Pre-Seed 500 Articles (One-Shot, Manus, NEVER scheduled)
+
+## Phase 1 — Plan + threshold
+- [ ] Build 500-topic plan (extends the 30) → `src/data/topics-500.json`
+- [ ] Raise quality gate min_words to 1800 for this seed
+- [ ] Confirm Oracle Lover voice spec is loaded into prompt
+
+## Phase 2 — Generation (DeepSeek parallel)
+- [ ] Generate ≥1800-word article per topic via DeepSeek V4-Pro
+- [ ] EEAT enrich + sanitiser pass + quality gate
+- [ ] Store as `status: "draft"` in `data/articles.json` (NOT published)
+
+## Phase 3 — Images
+- [ ] Generate 500 watercolor heroes (light, warm, never dark, per-topic alignment)
+- [ ] Convert PNG→WebP via sharp (q≈75)
+- [ ] Upload to Bunny `adopted-rage.b-cdn.net/queue/{slug}.webp`
+- [ ] Patch each draft's `image_url`/`hero_url`
+- [ ] Delete local source files (zero local images except favicon.svg)
+
+## Phase 4 — Zero-Manus audit + ship
+- [ ] No `manus.computer`, no `manus-storage`, no Manus CDN, no Manus runtime in repo
+- [ ] Confirm crons in-code only (`node-cron` in `src/cron/schedule.mjs`)
+- [ ] Confirm no Manus scheduled tasks for this site
+- [ ] Push 500 drafts + image refs to `peacefulgeek/adopted-rage`
+- [ ] Capture commit SHA, deliver §23 report

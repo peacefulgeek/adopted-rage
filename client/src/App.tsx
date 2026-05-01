@@ -14,6 +14,8 @@ import Privacy from "./pages/Privacy";
 import Author from "./pages/Author";
 import Toolkit from "./pages/Toolkit";
 import Library from "./pages/Library";
+import Assessments from "./pages/Assessments";
+import Remedies from "./pages/Remedies";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -30,6 +32,8 @@ function Router() {
         <Route path="/author/the-oracle-lover" component={Author} />
         <Route path="/toolkit" component={Toolkit} />
         <Route path="/library" component={Library} />
+        <Route path="/assessments" component={Assessments} />
+        <Route path="/remedies" component={Remedies} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

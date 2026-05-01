@@ -31,13 +31,9 @@ const __dirname = path.dirname(__filename);
 const SAFE_HOSTS = [
   "localhost",
   "127.0.0.1",
-  ".manus.computer",
-  ".manuspre.computer",
-  ".manus-asia.computer",
-  ".manusvm.computer",
-  ".manuscomputer.ai",
-  ".manus.space",
   ".ondigitalocean.app",
+  "adoptedrage.com",
+  "www.adoptedrage.com",
 ];
 
 function isInternalPreviewHost(host: string): boolean {
